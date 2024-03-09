@@ -13,7 +13,11 @@ then
 
 echo "Enter target IP: "
 read IP
-nmap -p1-65535 -sV -sS -T4 -A -O $IP
+
+#File name is defined
+output_file="nmap_scan_results"
+
+sudo nmap -p1-65535 -sV -sS -T4 -A -O -oA $output_file $IP
 
 #2nd choice: nikto
 elif [[ $sel -eq 2 ]];
